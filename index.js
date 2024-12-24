@@ -18,7 +18,7 @@ app.get('/users', async (req, res) => {
         // Collect all rows
         let result = [];
 
-        const request = new Request("SELECT * FROM SalesLT.Address", (err) => {
+        const request = new Request("SELECT TOP 3 *  FROM SalesLT.Customer", (err) => {
             if (err) {
                 console.error("Error executing query:", err);
                 res.status(500).json({ error: err.message });
