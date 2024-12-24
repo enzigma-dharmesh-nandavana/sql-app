@@ -1,18 +1,18 @@
-
+require('dotenv').config();
 const Connection = require('tedious').Connection;
 const config = {
-    server: 'newtestabx.database.windows.net',  //update me
+    server: process.env.DB_HOST,  //update me
     authentication: {
         type: 'default',
         options: {
-            userName: 'test', //update me
-            password: 'Vijay@123'  //update me
+            userName: process.env.DB_USER, //update me
+            password: process.env.DB_PASSWORD  //update me
         }
     },
     options: {
         // If you are on Microsoft Azure, you need encryption:
         encrypt: true,
-        database: 'nodedbtestnew'  //update me
+        database: process.env.DB_DATABASE  //update me
     }
 };
 var connection = new Connection(config);
